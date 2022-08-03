@@ -51,8 +51,7 @@ h1 {
   flex-direction: column;
   width: 960px;
   max-width: calc(100% - 1rem);
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 1rem;
   margin: auto;
   align-content: center;
   display: flex;

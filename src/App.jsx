@@ -60,10 +60,10 @@ const App = () => {
     };
 
     const ProposalVotes = async () => {
-      console.log("🌈🌈🌈🌈🌈🌈🌈🌈"+proposals[0].proposalId)
+      console.log("🌈🌈🌈🌈🌈🌈🌈🌈" + proposals[0].proposalId)
       try {
         const proposalVotes = await vote.getProposalVotes(0);
-        
+
         console.log("🌈 Votos da Propostas id:", proposalVotes);
       } catch (error) {
         console.log("falha ao buscar propostas", error);
@@ -215,7 +215,7 @@ const App = () => {
       <div className="unsupported-network">
         <h2>Por favor, conecte-se à rede Rinkeby</h2>
         <p>
-          Essa dapp só funciona com a rede Rinkeby, por favor 
+          Essa dapp só funciona com a rede Rinkeby, por favor
           troque de rede na sua carteira.
         </p>
       </div>
@@ -414,43 +414,37 @@ const App = () => {
                         }
                         return (
                           <div key={type}>
-                            <a
-                              type="radio"
-                              id={proposal.proposalId + "-" + type}
-                              name={proposal.proposalId}
-                              value={type}
-                              //valor padrão "abster" vem habilitado
-                              defaultChecked={type === 2}
-                            />
-                            <label htmlFor={proposal.proposalId + "-" + type}>
-                              {translations[label]}
-                            </label>
+                            <span>
+                              <label htmlFor={proposal.proposalId + "-" + type}>
+                                {translations[label]+`: --%`}
+                              </label>
+                            </span>
                           </div>
                         )
                       })}
                     </div>
                   </div>
                 ))}
-                
+
               </form>
             </div>
           </div>
           <p>Parabéns por fazer parte da construção coletiva e compartilhada!</p>
           <a>
-              Vamos juntos fazer a diferença!
+            Vamos juntos fazer a diferença!
           </a>
         </div>
       )
     } else {
       return (
         <div className="mint-nft">
-           <h1> Voce quer ser Membro?</h1>
-            <p>
-              <strong>
-                Vamos juntos fazer a diferença!
-              </strong>
-            </p>
-          
+          <h1> Voce quer ser Membro?</h1>
+          <p>
+            <strong>
+              Vamos juntos fazer a diferença!
+            </strong>
+          </p>
+
           <button
             disabled={isClaiming}
             onClick={mintNft}
