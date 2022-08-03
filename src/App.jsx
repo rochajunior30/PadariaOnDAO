@@ -217,7 +217,7 @@ const App = () => {
         <h2>Seja muito bem-vindos <h1>Padaria On</h1>
           <p>
             <strong>
-              Uma DAO  que ...!
+              Uma DAO  que conecta pessoas a negocios. Gerenciamento descentralizado de empresas.
             </strong>
           </p>
         </h2>
