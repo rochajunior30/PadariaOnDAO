@@ -4,7 +4,7 @@ body {
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #7700ee;
+  background-color: rgb(98, 93, 245);
   color: #fff;
   overflow-x: hidden;
 }
@@ -12,6 +12,8 @@ body {
   min-height: 100vh;
   display: flex;
 }
+
+
 
 h1 {
   font-size: 5rem;
@@ -116,8 +118,11 @@ h1 {
 
 button {
   cursor: pointer;
-  background-color: #000;
-  color: #fff;
+  background-color: rgb(255, 255, 255);
+  color: #191645;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   border: none;
   font-weight: bold;
   font-family: inherit;
@@ -128,11 +133,11 @@ button {
 }
 
 button:hover {
-  background-color: #121212;
+  background-color: #e5e5e5;
 }
 
 button:focus {
-  background-color: #222;
+  background-color: #e5e5e5;
 }
 
 button:disabled {
