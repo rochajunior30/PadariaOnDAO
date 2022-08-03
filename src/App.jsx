@@ -58,7 +58,19 @@ const App = () => {
         console.log("falha ao buscar propostas", error);
       }
     };
+
+    const ProposalVotes = async () => {
+      console.log("🌈🌈🌈🌈🌈🌈🌈🌈"+proposals[0].proposalId)
+      try {
+        const proposalVotes = await vote.getProposalVotes(0);
+        
+        console.log("🌈 Votos da Propostas id:", proposalVotes);
+      } catch (error) {
+        console.log("falha ao buscar propostas", error);
+      }
+    }
     getAllProposals();
+    ProposalVotes();
   }, [hasClaimedNFT, vote]);
 
   // Nós também precisamos checar se o usuário já votou.
@@ -236,10 +248,6 @@ const App = () => {
       return (
         <div className="member-page">
           <h1>Membr☕s da DA🥞</h1>
-          <p>Parabéns por fazer parte da construção coletiva e compartilhada!</p>
-          <a>
-              Vamos juntos fazer a diferença!
-          </a>
           <div>
             <div>
               <h2>Lista de Membros ⤵️</h2>
@@ -263,7 +271,7 @@ const App = () => {
               </table>
             </div>
             <div>
-              <h2>Propostas Ativas ⤵️</h2>
+              <h2>Propostas Ativas ✅</h2>
               <form
                 onSubmit={async (e) => {
                   e.preventDefault()
@@ -391,19 +399,58 @@ const App = () => {
                 )}
               </form>
             </div>
+            <div>
+              <h2>Propostas Encerradas ☑️</h2>
+              <form>
+                {proposals.map((proposal) => (
+                  <div key={proposal.proposalId} className="card">
+                    <h5>{proposal.description}</h5>
+                    <div>
+                      {proposal.votes.map(({ type, label }) => {
+                        const translations = {
+                          Against: "Contra",
+                          For: "A favor",
+                          Abstain: "Abstenção",
+                        }
+                        return (
+                          <div key={type}>
+                            <a
+                              type="radio"
+                              id={proposal.proposalId + "-" + type}
+                              name={proposal.proposalId}
+                              value={type}
+                              //valor padrão "abster" vem habilitado
+                              defaultChecked={type === 2}
+                            />
+                            <label htmlFor={proposal.proposalId + "-" + type}>
+                              {translations[label]}
+                            </label>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                ))}
+                
+              </form>
+            </div>
           </div>
+          <p>Parabéns por fazer parte da construção coletiva e compartilhada!</p>
+          <a>
+              Vamos juntos fazer a diferença!
+          </a>
         </div>
       )
     } else {
       return (
         <div className="mint-nft">
-          <h2>Que bom que esta de volta!! <h1> Voce quer ser Membro?</h1>
+           <h1> Voce quer ser Membro?</h1>
             <p>
               <strong>
                 Vamos juntos fazer a diferença!
               </strong>
             </p>
-          </h2>
+          
           <button
             disabled={isClaiming}
             onClick={mintNft}
