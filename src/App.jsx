@@ -217,7 +217,12 @@ const App = () => {
         <h2>Seja muito bem-vindos <h1>Padaria On</h1>
           <p>
             <strong>
-              Uma DAO  que conecta pessoas a negocios. Gerenciamento descentralizado de empresas.
+              Uma DAO  que conecta pessoas a negocios.
+            </strong>
+          </p>
+          <p>
+            <strong>
+              Gerenciamento descentralizado de empresas comuns.
             </strong>
           </p>
         </h2>
@@ -230,13 +235,11 @@ const App = () => {
     if (hasClaimedNFT) {
       return (
         <div className="member-page">
-          <h1>☕ Página dos membros da DAO</h1>
+          <h1>Membr☕s da DA🥞</h1>
           <p>Parabéns por fazer parte da construção coletiva e compartilhada!</p>
-          <p>
-            <strong>
+          <a>
               Vamos juntos fazer a diferença!
-            </strong>
-          </p>
+          </a>
           <div>
             <div>
               <h2>Lista de Membros</h2>
