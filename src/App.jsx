@@ -242,7 +242,7 @@ const App = () => {
           </a>
           <div>
             <div>
-              <h2>Lista de Membros</h2>
+              <h2>Lista de Membros ⤵️</h2>
               <table className="card">
                 <thead>
                   <tr>
@@ -263,7 +263,7 @@ const App = () => {
               </table>
             </div>
             <div>
-              <h2>Propostas Ativas</h2>
+              <h2>Propostas Ativas ⤵️</h2>
               <form
                 onSubmit={async (e) => {
                   e.preventDefault()
